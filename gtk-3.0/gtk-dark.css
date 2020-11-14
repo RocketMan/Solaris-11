@@ -11,7 +11,7 @@
   -GtkWidget-text-handle-width: 20;
   -GtkWidget-text-handle-height: 20;
   -GtkDialog-button-spacing: 4;
-  -GtkDialog-action-area-border: 0;
+  -GtkDialog-action-area-border: 10;
   -GtkTreeview-expander-size: 8;
   background-clip: padding-box;
   outline-width: 1px;
@@ -435,12 +435,12 @@ entry {
   entry > image.right {
     padding-left: 5px; }
   entry progress {
-    margin: -4px -4px;
-    border-width: 0 0 2px;
-    border-radius: 0;
-    border-style: solid;
-    border-color: #607B8B;
-    background-color: transparent; }
+    border-width: 0;
+    border-radius: 6px;
+    box-shadow: none;
+    background-color: shade(@theme_bg_color, 0.9);
+    background-image: none;
+    color: @theme_bg_color; }
   entry.flat, entry.flat:focus {
     min-height: 0;
     padding: 3px;
@@ -889,12 +889,10 @@ modelbutton.flat, menuitem.button.flat, .menuitem.button.flat {
 notebook {
   padding: 0; }
   notebook.frame {
-    margin: -1px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: black; }
+    border-width: 0;
+    border-color: transparent; }
     notebook.frame > header {
-      margin: -1px; }
+      margin: 0; }
       notebook.frame > header.top {
         margin-bottom: 0;
         border-bottom: 4px solid #bbd0e3;
@@ -1287,8 +1285,6 @@ scrollbar {
       border-style: solid;
       border-left-width: 11px;
       border-right-width: 11px;
-      margin-left: -11px;
-      margin-right: -11px;
       border-image: url("assets/scrollbar-slider-h.png") 7 11 7 11 stretch; }
     scrollbar.horizontal button {
       border: none;
@@ -1301,8 +1297,10 @@ scrollbar {
       scrollbar.horizontal button:backdrop {
         color: transparent; }
       scrollbar.horizontal button.down {
+        margin-left: -12px;
         background-image: url("assets/stepper-right.png"); }
       scrollbar.horizontal button.up {
+        margin-right: -12px;
         background-image: url("assets/stepper-left.png"); }
   scrollbar.vertical {
     border-left: none;
@@ -1312,8 +1310,6 @@ scrollbar {
       min-width: 0px;
       padding: 0;
       margin: 1px;
-      margin-top: -11px;
-      margin-bottom: -11px;
       border-width: 7px;
       border-radius: 0px;
       border-style: solid;
@@ -1331,8 +1327,10 @@ scrollbar {
       scrollbar.vertical button:backdrop {
         color: transparent; }
       scrollbar.vertical button.down {
+        margin-top: -12px;
         background-image: url("assets/stepper-down.png"); }
       scrollbar.vertical button.up {
+        margin-bottom: -12px;
         background-image: url("assets/stepper-up.png"); }
   treeview ~ scrollbar.vertical {
     border-top: 1px solid shade(#B9D0E4, 0.9);
@@ -1617,12 +1615,20 @@ headerbar {
     padding-left: 12px;
     padding-right: 12px;
     font-weight: bold; }
+  headerbar .title:backdrop {
+    color: shade(@theme_unfocused_selected_fg_color, 0.6); }
   headerbar .subtitle {
     font-size: smaller;
     padding-left: 12px;
     padding-right: 12px;
     color: alpha(currentColor, 0.7); }
+  headerbar .subtitle:backdrop {
+    color: shade(@theme_unfocused_selected_fg_color, 0.6); }
+  headerbar entry {
+    min-height: 20px;
+  }
   headerbar button {
+    min-height: 20px;
     padding: 4px 8px;
     border-style: solid;
     border-width: 1px;
@@ -1665,6 +1671,7 @@ headerbar {
   headerbar.titlebar, .titlebar headerbar {
     border-radius: 4px 4px 0px 0px; }
   headerbar .titlebutton.close, headerbar .titlebutton.maximize, headerbar .titlebutton.minimize, headerbar .titlebutton:not(separator) {
+    border-radius: 0px;
     padding: 0;
     min-height: 18px;
     min-width: 19px;
@@ -1872,16 +1879,25 @@ toolbar {
     .inline-toolbar toolbutton > button:backdrop {
       color: #000000; }
 
-.linked button, .linked .raised button {
-  margin: 1px; }
-.linked entry {
-  margin: 1px; }
-.linked combobox {
-  margin: 1px; }
-.linked spinbutton {
-  margin: 1px; }
-  .linked spinbutton entry, .linked spinbutton button {
-    margin: 0; }
+.linked button:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-left: 0;
+}
+
+.linked button:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-right: 0;
+    border-right: 0;
+}
+
+.linked button:not(:first-child):not(:last-child) {
+    border-radius: 0;
+    margin-left: 0;
+    margin-right: 0;
+    border-right: 0;
+}
 
 combobox button:not(:only-child) {
   border-bottom-left-radius: 0;
@@ -1898,18 +1914,18 @@ combobox entry:not(:only-child) {
   border-right-width: 0; }
 
 tooltip {
-  border-radius: 4px;
+  border-radius: 1px;
   box-shadow: none; }
   tooltip.background {
     border-width: 1px;
     border-style: solid;
-    border-color: shade(#B9D0E4, 0.9);
-    background-color: #16223E; }
+    border-color: #000000;
+    background-color: #ffffe0; }
     tooltip.background label {
-      padding: 1px; }
+      padding: 0px; }
   tooltip * {
     background-color: transparent;
-    color: #FFFFFF; }
+    color: #000000; }
 
 textview {
   color: #000000;
@@ -2371,7 +2387,7 @@ decoration {
     box-shadow: none; }
   .solid-csd decoration {
     margin: 1px;
-    border-radius: 0px;
+    border-radius: 2px 2px 0 0;
     background-color: alpha(white, 0.95);
     box-shadow: none; }
 
@@ -2747,3 +2763,8 @@ read if you used those and something break with a version upgrade you're on your
 @define-color wm_button_active_color_b shade(#B9D0E4, 0.89);
 @define-color wm_button_active_color_c shade(#B9D0E4, 0.9);
 @define-color content_view_bg #B9D0E4;
+
+headerbar .title.text-button {
+    color: @theme_text_color;
+    background-color: @theme_bg_color;
+}
