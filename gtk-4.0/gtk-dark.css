@@ -1580,7 +1580,7 @@ headerbar {
   headerbar:backdrop {
     color: #000000;
     background-color: shade(#B9D0E4, 0.9);
-    background-image: linear-gradient(to bottom, shade(#B9D0E4, 0.9), shade(#B9D0E4, 1));
+    background-image: linear-gradient(to bottom, shade(#2A3D69, 0.9), shade(#2A3D69, 1));
     border-bottom-color: shade(#B9D0E4, 0.9); }
   .tiled headerbar, .tiled headerbar:backdrop, .maximized headerbar, .maximized headerbar:backdrop {
     border-radius: 0; }
