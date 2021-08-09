@@ -753,6 +753,9 @@ popover.background > arrow, popover.background > contents { background-color: #f
 popover.background > contents { padding: 8px; }
 popover.background > contents separator { background-color: #d9d5d1; margin: 3px; }
 
+.solid-csd popover.background { background-color: @theme_bg_color; border: 1px solid @borders; }
+.solid-csd popover.background > arrow, .solid-csd popover.background > contents { border: none; box-shadow: none; }
+
 popover.menu { padding: 0; }
 popover.menu > arrow, popover.menu.background > contents { background-color: #e8e9ed; padding: 8px; }
 popover.menu.background separator { margin: 6px 0; }
@@ -2288,11 +2291,11 @@ headerbar.selection-mode, toolbar.selection-mode {
     headerbar.selection-mode .selection-menu button .dim-label, toolbar.selection-mode .selection-menu button .dim-label {
       color: shade(#4B6983, 0.7); }
 
-window.csd:not(.maximized) {
+window.csd:not(.maximized), .solid-csd:not(.maximized) {
   border-radius: 4px 4px 0 0;
   border-width: 0px;
   box-shadow: 0 3px 9px 1px alpha(#000000, 0.3), 0 0 0 1px #ffffff; }
-  window.csd:backdrop {
+  window.csd:backdrop, .solid-csd:backdrop {
     box-shadow: 0 3px 9px 1px transparent, 0 2px 6px 2px alpha(#000000, 0.2), 0 0 0 1px alpha(#ffffff, 0.65); }
   .maximized, .fullscreen, .tiled, .tiled-top, .tiled-right, .tiled-bottom, .tiled-left {
     border-radius: 0; }
