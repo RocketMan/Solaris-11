@@ -1820,6 +1820,7 @@ combobox entry:not(:only-child) {
   border-right-width: 0; }
 
 tooltip {
+  padding: 3px;
   border-radius: 1px;
   box-shadow: none; }
   tooltip.background {
