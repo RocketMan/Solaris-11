@@ -2829,3 +2829,8 @@ popover.combo list > row:not(:last-child) {
 popover.combo list > row:hover {
     color: @theme_selected_fg_color;
     background-color: @theme_selected_bg_color; }
+
+/* caret is not automatically hidden in gtk4 on loss of toplevel focus */
+text:not(:focus) {
+    caret-color: transparent;
+}
