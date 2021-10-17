@@ -2756,7 +2756,13 @@ headerbar.titlebar .subtitle:backdrop,
 headerbar.titlebar separator:backdrop,
 headerbar.titlebar button:backdrop:not(.close):not(.maximize):not(.minimize),
 headerbar.titlebar combobox:backdrop,
-headerbar.titlebar entry:backdrop {
+headerbar.titlebar entry:backdrop,
+.titlebar headerbar .title:backdrop,
+.titlebar headerbar .subtitle:backdrop,
+.titlebar headerbar separator:backdrop,
+.titlebar headerbar button:backdrop:not(.close):not(.maximize):not(.minimize),
+.titlebar headerbar combobox:backdrop,
+.titlebar headerbar entry:backdrop {
     opacity: 0.5; }
 
 notebook tab button:not(:hover) {
