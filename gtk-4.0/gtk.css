@@ -188,6 +188,8 @@ button {
     color: mix(#000000, mix(#000000, #E8E9ED, 0.5), 0.5); }
   button:backdrop {
     color: #000000; }
+  button:focus-visible {
+    outline-style: dashed; }
   button.flat {
     border-color: transparent;
     border-radius: 5px;

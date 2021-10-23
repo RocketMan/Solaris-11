@@ -186,6 +186,8 @@ button {
       color: mix(#000000, mix(#000000, #B9D0E4, 0.5), 0.1); }
   button:disabled {
     color: mix(#000000, mix(#000000, #B9D0E4, 0.5), 0.5); }
+  button:focus-visible {
+    outline-style: dashed; }
   button:backdrop {
     color: #000000; }
   button.flat {
