@@ -772,6 +772,7 @@ popover.background > contents separator { background-color: @borders; margin: 3p
 .solid-csd popover.background > arrow, .solid-csd popover.background > contents { border: none; box-shadow: none; }
 
 popover.menu > arrow, popover.menu.background > contents { background-color: #e8e9ed; }
+menubutton > popover.menu.background > contents { padding: 8px; }
 popover.menu.background separator { margin: 6px 0; }
 popover.menu accelerator { color: alpha(currentColor,0.55); }
 popover.menu accelerator:dir(ltr) { margin-left: 12px; }
@@ -796,7 +797,7 @@ popover:backdrop {
   box-shadow: none; }
 
 modelbutton.flat, item.button.flat, .item.button.flat {
-  padding: 2px 8px;
+  padding: 4px 10px;
   border: none;
   color: #000000;
   background-color: transparent; }
